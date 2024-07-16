@@ -13,7 +13,7 @@ class AuthController {
 
   async validateToken(req, res) {
     try {
-      const token = req.header('Authorization')?.replace('Bearer ', '');
+      const { token } = req.body;
       const result = await authService.validateToken(token);
       res.json(result);
     } catch (error) {
